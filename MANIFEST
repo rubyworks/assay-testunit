@@ -1,0 +1,8 @@
+#!mast .ruby bin demo qed lib test [A-Z][A-Z]*
+.ruby
+lib/assay/testunit.rb
+lib/assay-testunit.rb
+lib/assay-testunit.yml
+HISTORY.rdoc
+README.rdoc
+LICENSE.rdoc

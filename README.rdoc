@@ -26,8 +26,8 @@ project for more information on this foundational library.
 == USAGE
 
 Simply require the `assay/testunit` script, and include the `Assay::Matchers`
-mixin module into your test framework, whereever it requires it (which may
-be as simple as the topleve namespace).
+mixin module into your tests wherever your test framework requires it (which 
+may be as simple as the toplevel namespace).
 
   require 'assay/testunit'
 

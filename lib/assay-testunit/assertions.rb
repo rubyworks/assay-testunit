@@ -1,5 +1,4 @@
-require 'assay'
-
+module Assay; end
 module Assay::TestUnit
 
   # This module holds the Test::Unit assertion methods for Test::Unit

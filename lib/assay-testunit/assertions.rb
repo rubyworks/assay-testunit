@@ -400,7 +400,7 @@ module Assay::TestUnit
     #   end
     #
     def assert_nothing_raised(message=nil, &block)
-      RaiseAssay.refute!(Exception, :message=>message, :backtrace=>caller, &block)
+      RescueAssay.refute!(Exception, :message=>message, :backtrace=>caller, &block)
     end
 
     #
@@ -411,7 +411,7 @@ module Assay::TestUnit
     #   end
     #
     def assert_raise_kind_of(exception_class, message=nil, &block)
-      RaiseAssay.assert!(exception_class, :message=>message, :backtrace=>caller, &block)
+      RescueAssay.assert!(exception_class, :message=>message, :backtrace=>caller, &block)
     end
 
     #

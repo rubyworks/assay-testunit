@@ -155,7 +155,7 @@ Then include them into your test scope.
 
   assert_raise_kind_of(StandardError){ raise }
 
-  expect ::RaiseAssay do
+  expect ::RescueAssay do
     assert_raise_kind_of(ArgumentError){ raise TypeError }
   end
 
@@ -166,7 +166,7 @@ Then include them into your test scope.
   assert_nothing_raised{ true }
   assert_nothing_raised{ nil }
 
-  expect ::RaiseAssay do
+  expect ::RescueAssay do
     assert_nothing_raised{ raise }
   end
 

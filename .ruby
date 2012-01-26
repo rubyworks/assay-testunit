@@ -40,7 +40,7 @@ summary: TestUnit on Assay
 title: Assay TestUnit
 version: 0.1.0
 name: assay-testunit
-description: ! 'Assay TestUnit defines a set of RSpec-compatible assertion methods
+description: ! 'Assay TestUnit defines a set of TestUnit-compatible assertion methods
   which
 
   depend on Assay''s assertion classes. This allows developers to change
@@ -49,4 +49,4 @@ description: ! 'Assay TestUnit defines a set of RSpec-compatible assertion metho
 
   defined assertions.'
 organization: Rubyworks
-date: '2012-01-18'
+date: '2012-01-25'

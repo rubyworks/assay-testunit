@@ -2,11 +2,9 @@
 
 == Assay TestUnit
 
-Copyright:: (c) 2012 RubyWorks
+Copyright:: (c) 2012 Rubyworks
 License:: BSD-2-Clause
 Website:: http://rubyworks.github.com/assay-testunit
-
-    Copyright 2012 Rubyworks. All rights reserved.
 
 == BSD-2-Clause License
 

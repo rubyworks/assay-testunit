@@ -1,8 +1,9 @@
 = Assay TestUnit
 
 {Homepage}[http://rubyworks.github.com/assay-testunit] /
+{Report Issue}[http://github.com/rubyworks/assay-testunit/issues] /
 {Source Code}[http://github.com/rubyworks/assay-testunit] /
-{MailingList}[http://groups.google.com/group/rubyworks-mailinglist]
+{Mailing List}[http://groups.google.com/group/rubyworks-mailinglist]
 
 
 == DESCRIPTION

@@ -25,6 +25,6 @@ qed:
 qedoc:
   files: spec/*.md
   output:
-    - DEMOS.rdoc
+    - DEMOS.md
     - web/demos.html
 

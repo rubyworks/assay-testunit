@@ -1,0 +1,7 @@
+--title "Assay TestUnit"
+--readme README.rdoc
+--protected
+--private
+lib
+-
+[A-Z]*.*

@@ -142,336 +142,296 @@
 
 <p>To use the assertion methods, first require the library.</p>
 
-<p>  require 'assay/testunit'</p>
+<pre><code>require 'assay/testunit'
+</code></pre>
 
 <p>Then include them into your test scope.</p>
 
-<p>  include ::Assay::Assertions</p>
+<pre><code>include ::Assay::Assertions
+</code></pre>
 
 <h2>assert_equal</h2>
 
-<p>  assert_equal(1,1)</p>
+<pre><code>assert_equal(1,1)
 
-<p>  expect ::EqualAssay do</p>
+expect ::EqualAssay do
+  assert_equal(1,2)
+end
 
-<pre><code>assert_equal(1,2)
+assert_not_equal(1,2)
 </code></pre>
-
-<p>  end</p>
-
-<p>  assert_not_equal(1,2)</p>
 
 <h2>assert_true</h2>
 
-<p>  assert_true(true)</p>
+<pre><code>assert_true(true)
 
-<p>  expect ::TrueAssay do</p>
+expect ::TrueAssay do
+  assert_true(false)
+end
 
-<pre><code>assert_true(false)
+assert_not_true(false)
+assert_not_true(nil)
 </code></pre>
-
-<p>  end</p>
-
-<p>  assert_not_true(false)
-  assert_not_true(nil)</p>
 
 <h2>assert_false</h2>
 
-<p>  assert_false(false)</p>
+<pre><code>assert_false(false)
 
-<p>  expect ::FalseAssay do</p>
+expect ::FalseAssay do
+  assert_false(true)
+end
 
-<pre><code>assert_false(true)
+assert_not_false(true)
+assert_not_false(nil)
 </code></pre>
-
-<p>  end</p>
-
-<p>  assert_not_false(true)
-  assert_not_false(nil)</p>
 
 <h2>assert_nil</h2>
 
-<p>  assert_nil(nil)</p>
+<pre><code>assert_nil(nil)
 
-<p>  expect ::NilAssay do</p>
+expect ::NilAssay do
+  assert_nil(true)
+end
 
-<pre><code>assert_nil(true)
+assert_not_nil(true)
+assert_not_nil(false)
 </code></pre>
-
-<p>  end</p>
-
-<p>  assert_not_nil(true)
-  assert_not_nil(false)</p>
 
 <h2>assert_in_delta</h2>
 
-<p>  assert_in_delta(1, 1.5, 2)</p>
+<pre><code>assert_in_delta(1, 1.5, 2)
 
-<p>  expect ::WithinAssay do</p>
+expect ::WithinAssay do
+  assert_in_delta(1, 2.5, 1)
+end
 
-<pre><code>assert_in_delta(1, 2.5, 1)
+assert_not_in_delta(1, 2, 0.5)
 </code></pre>
-
-<p>  end</p>
-
-<p>  assert_not_in_delta(1, 2, 0.5)</p>
 
 <h2>assert_in_epsilon</h2>
 
-<p>  assert_in_epsilon(1, 1.5, 2)
-  assert_in_epsilon(0, 1.5, 2)</p>
+<pre><code>assert_in_epsilon(1, 1.5, 2)
+assert_in_epsilon(0, 1.5, 2)
 
-<p>  expect ::WithinAssay do</p>
+expect ::WithinAssay do
+  assert_in_epsilon(1, 2.5, 1)
+end
 
-<pre><code>assert_in_epsilon(1, 2.5, 1)
+assert_not_in_epsilon(1, 2.5, 1)
+assert_not_in_epsilon(0, 2.5, 1)
 </code></pre>
-
-<p>  end</p>
-
-<p>  assert_not_in_epsilon(1, 2.5, 1)
-  assert_not_in_epsilon(0, 2.5, 1)</p>
 
 <h2>assert_match</h2>
 
-<p>  assert_match(/a/, "abc")</p>
+<pre><code>assert_match(/a/, "abc")
 
-<p>  expect ::MatchAssay do</p>
+expect ::MatchAssay do
+  assert_match(/x/, "abc")
+end
 
-<pre><code>assert_match(/x/, "abc")
+assert_not_match(/a/, "bcd")
 </code></pre>
-
-<p>  end</p>
-
-<p>  assert_not_match(/a/, "bcd")</p>
 
 <h2>assert_no_match</h2>
 
-<p>  assert_no_match(/a/, "bcd")</p>
+<pre><code>assert_no_match(/a/, "bcd")
 
-<p>  expect ::NoMatchAssay do</p>
-
-<pre><code>assert_no_match(/a/, "abc")
+expect ::NoMatchAssay do
+  assert_no_match(/a/, "abc")
+end
 </code></pre>
-
-<p>  end</p>
 
 <h2>assert_empty</h2>
 
-<p>  assert_empty([])</p>
+<pre><code>assert_empty([])
 
-<p>  expect ::EmptyAssay do</p>
+expect ::EmptyAssay do
+  assert_empty([1,2,3])
+end
 
-<pre><code>assert_empty([1,2,3])
+assert_not_empty([1,2,3])
 </code></pre>
-
-<p>  end</p>
-
-<p>  assert_not_empty([1,2,3])</p>
 
 <h2>assert_include</h2>
 
-<p>  assert_includes([1,2,3], 1)</p>
+<pre><code>assert_includes([1,2,3], 1)
 
-<p>  expect ::IncludeAssay do</p>
+expect ::IncludeAssay do
+  assert_includes([1,2,3], 4)
+end
 
-<pre><code>assert_includes([1,2,3], 4)
+assert_not_includes([1,2,3], 4)
 </code></pre>
-
-<p>  end</p>
-
-<p>  assert_not_includes([1,2,3], 4)</p>
 
 <h2>assert_same</h2>
 
-<p>  assert_same(:a, :a)</p>
+<pre><code>assert_same(:a, :a)
 
-<p>  expect ::IdentityAssay do</p>
+expect ::IdentityAssay do
+  assert_same("a", "a")
+end
 
-<pre><code>assert_same("a", "a")
+assert_not_same(:a, :b)
 </code></pre>
-
-<p>  end</p>
-
-<p>  assert_not_same(:a, :b)</p>
 
 <h2>assert_instance_of</h2>
 
-<p>  assert_instance_of(Fixnum, 1)</p>
+<pre><code>assert_instance_of(Fixnum, 1)
 
-<p>  expect ::InstanceAssay do</p>
+expect ::InstanceAssay do
+  assert_instance_of(String, 1)
+end
 
-<pre><code>assert_instance_of(String, 1)
+assert_not_instance_of(String, 1)
 </code></pre>
-
-<p>  end</p>
-
-<p>  assert_not_instance_of(String, 1)</p>
 
 <h2>assert_kind_of</h2>
 
-<p>  assert_kind_of(Integer, 1)</p>
+<pre><code>assert_kind_of(Integer, 1)
 
-<p>  expect ::KindAssay do</p>
+expect ::KindAssay do
+  assert_kind_of(String, 1)
+end
 
-<pre><code>assert_kind_of(String, 1)
+assert_not_kind_of(String, 1)
 </code></pre>
-
-<p>  end</p>
-
-<p>  assert_not_kind_of(String, 1)</p>
 
 <h2>assert_raise</h2>
 
-<p>  assert_raise(ArgumentError){ raise ArgumentError }</p>
+<pre><code>assert_raise(ArgumentError){ raise ArgumentError }
 
-<p>  expect ::RaiseAssay do</p>
+expect ::RaiseAssay do
+  assert_raise(ArgumentError){ raise TypeError }
+end
 
-<pre><code>assert_raise(ArgumentError){ raise TypeError }
+assert_not_raised(ArgumentError){ raise TypeError }
 </code></pre>
-
-<p>  end</p>
-
-<p>  assert_not_raised(ArgumentError){ raise TypeError }</p>
 
 <h2>assert_raise_kind_of</h2>
 
-<p>  assert_raise_kind_of(StandardError){ raise }</p>
+<pre><code>assert_raise_kind_of(StandardError){ raise }
 
-<p>  expect ::RaiseAssay do</p>
+expect ::RescueAssay do
+  assert_raise_kind_of(ArgumentError){ raise TypeError }
+end
 
-<pre><code>assert_raise_kind_of(ArgumentError){ raise TypeError }
+assert_raise_kind_of(Exception){ raise }
 </code></pre>
-
-<p>  end</p>
-
-<p>  assert_raise_kind_of(Exception){ raise }</p>
 
 <h2>assert_nothing_raised</h2>
 
-<p>  assert_nothing_raised{ true }
-  assert_nothing_raised{ nil }</p>
+<pre><code>assert_nothing_raised{ true }
+assert_nothing_raised{ nil }
 
-<p>  expect ::RaiseAssay do</p>
-
-<pre><code>assert_nothing_raised{ raise }
+expect ::RescueAssay do
+  assert_nothing_raised{ raise }
+end
 </code></pre>
-
-<p>  end</p>
 
 <h2>assert_respond_to</h2>
 
-<p>  assert_respond_to("string", :upcase)</p>
+<pre><code>assert_respond_to("string", :upcase)
 
-<p>  expect ::RespondAssay do</p>
+expect ::RespondAssay do
+  assert_respond_to("string", :not_a_method)
+end
 
-<pre><code>assert_respond_to("string", :not_a_method)
+assert_not_respond_to("string", :not_a_method)
 </code></pre>
-
-<p>  end</p>
-
-<p>  assert_not_respond_to("string", :not_a_method)</p>
 
 <h2>assert_block</h2>
 
-<p>  assert_block{ :ok }</p>
+<pre><code>assert_block{ :ok }
 
-<p>  expect ::ExecutionAssay do</p>
-
-<pre><code>assert_block{ raise }
+expect ::ExecutionAssay do
+  assert_block{ raise }
+end
 </code></pre>
-
-<p>  end</p>
 
 <h2>assert_throw</h2>
 
-<p>  assert_throw(:foo){ throw :foo }</p>
+<pre><code>assert_throw(:foo){ throw :foo }
 
-<p>  expect ::ThrowAssay do</p>
+expect ::ThrowAssay do
+  assert_throw(:foo){ throw :bar }
+end
 
-<pre><code>assert_throw(:foo){ throw :bar }
+assert_not_thrown(:foo){ throw :bar }
 </code></pre>
-
-<p>  end</p>
-
-<p>  assert_not_thrown(:foo){ throw :bar }</p>
 
 <h2>assert_nothing_thrown</h2>
 
-<p>  assert_nothing_thrown{ nil }</p>
+<pre><code>assert_nothing_thrown{ nil }
 
-<p>  expect ::ThrowAssay do</p>
-
-<pre><code>assert_nothing_thrown{ throw :bar }
+expect ::ThrowAssay do
+  assert_nothing_thrown{ throw :bar }
+end
 </code></pre>
-
-<p>  end</p>
 
 <h2>assert_compare</h2>
 
-<p>  assert_compare(1, :&lt;,  2)
-  assert_compare(2, :>,  1)
-  assert_compare(1, :&lt;=, 1)
-  assert_compare(1, :>=, 1)
-  assert_compare(1, :&lt;=, 2)
-  assert_compare(2, :>=, 1)
-  assert_compare(1, :==, 1)</p>
+<pre><code>assert_compare(1, :&lt;,  2)
+assert_compare(2, :&gt;,  1)
+assert_compare(1, :&lt;=, 1)
+assert_compare(1, :&gt;=, 1)
+assert_compare(1, :&lt;=, 2)
+assert_compare(2, :&gt;=, 1)
+assert_compare(1, :==, 1)
 
-<p>  expect ArgumentError do</p>
-
-<pre><code>assert_compare(1, :&lt;=&gt;, 1)
+expect ArgumentError do
+  assert_compare(1, :&lt;=&gt;, 1)
+end
 </code></pre>
-
-<p>  end</p>
 
 <h2>assert_operator</h2>
 
-<p>  assert_operator([], :&lt;&lt;, 1)</p>
+<pre><code>assert_operator([], :&lt;&lt;, 1)
+</code></pre>
 
 <h2>assert_predicate</h2>
 
-<p>  assert_predicate(10, :even?)</p>
+<pre><code>assert_predicate(10, :even?)
 
-<p>  assert_not_predicate(10, :odd?)</p>
+assert_not_predicate(10, :odd?)
+</code></pre>
 
 <h2>assert_path_exist</h2>
 
-<p>  assert_path_exist(<strong>FILE</strong>)</p>
+<pre><code>assert_path_exist(__FILE__)
 
-<p>  assert_path_not_exist(<strong>FILE</strong> + '.foobar')</p>
+assert_path_not_exist(__FILE__ + '.foobar')
+</code></pre>
 
 <h2>assert_boolean</h2>
 
-<p>  assert_boolean(true)
-  assert_boolean(false)</p>
+<pre><code>assert_boolean(true)
+assert_boolean(false)
 
-<p>  assert_not_boolean(nil)</p>
+assert_not_boolean(nil)
+</code></pre>
 
 <h2>assert_alike</h2>
 
-<p>  assert_alike(1,1)
-  assert_alike(1,1.0)</p>
+<pre><code>assert_alike(1,1)
+assert_alike(1,1.0)
 
-<p>  expect ::LikeAssay do</p>
+expect ::LikeAssay do
+  assert_alike(1,"1")
+end
 
-<pre><code>assert_alike(1,"1")
+assert_not_alike(1,"1")
 </code></pre>
-
-<p>  end</p>
-
-<p>  assert_not_alike(1,"1")</p>
 
 <h2>assert_equivalent</h2>
 
-<p>  assert_equivalent(1, 1)</p>
+<pre><code>assert_equivalent(1, 1)
 
-<p>  expect ::EqualityAssay do</p>
+expect ::EqualityAssay do
+  assert_equivalent(1, 1.0)
+end
 
-<pre><code>assert_equivalent(1, 1.0)
+assert_not_equivalent(1, 1.0)
 </code></pre>
-
-<p>  end</p>
-
-<p>  assert_not_equivalent(1, 1.0)</p>
 
 
     </div>

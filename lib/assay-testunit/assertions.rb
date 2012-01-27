@@ -147,7 +147,7 @@ module Assay::TestUnit
     end
 
     #
-    # Passes if expected and actual are equal within delta tolerance.
+    # Passes if expected and actual are equal within `delta` absolte tolerance.
     #
     #   assert_in_delta 0.05, (50000.0 / 10**6), 0.00001
     #
@@ -156,7 +156,7 @@ module Assay::TestUnit
     end
 
     #
-    # Passes if expected and actual are equal not within delta tolerance.
+    # Passes if expected and actual are NOT equal within `delta` absolute tolerance.
     #
     #   assert_not_in_delta 0.05, (50000.0 / 10**6), 0.00001
     #
@@ -165,29 +165,19 @@ module Assay::TestUnit
     end
 
     #
-    # Passes if `exp` and `act` are within `epsilon`.
+    # Passes if `exp` and `act` are within `epsilon` relative tolerance.
     #
     def assert_in_epsilon(exp, act, epsilon=0.001, message=nil)
-      exp = exp.to_f
-      if exp.zero?
-        delta = epsilon.to_f ** 2
-      else
-        delta = exp * epsilon.to_f
-      end
-      WithinAssay.assert!(act, exp, delta, :message=>message, :backtrace=>caller)
+      exp = epsilon if exp.zero?  # why does minitest do this?
+      CloseAssay.assert!(act, exp, delta, :message=>message, :backtrace=>caller)
     end
 
     #
-    # Passes if `exp` and `act` are NOT within `epsilon`.
+    # Passes if `exp` and `act` are NOT within `epsilon` relative tolerance.
     #
     def assert_not_in_epsilon(exp, act, epsilon=0.001, message=nil) 
-      exp = exp.to_f
-      if exp.zero?
-        delta = epsilon.to_f ** 2
-      else
-        delta = exp * epsilon.to_f
-      end
-      WithinAssay.refute!(act, exp, delta, :message=>message, :backtrace=>caller)
+      exp = epsilon if exp.zero?
+      CloseAssay.refute!(act, exp, delta, :message=>message, :backtrace=>caller)
     end
 
     #

@@ -1,11 +1,16 @@
-#!mast .ruby .yardopts bin demo qed lib test [A-Z]*.*
-.ruby
+#!mast .index .yardopts bin data demo lib spec test [A-Z]*.*
+.index
 .yardopts
+demo/01_testunit_assertions.md
+demo/applique/helper.rb
+demo/applique/setup.rb
 lib/assay/testunit.rb
 lib/assay-testunit/assertions.rb
 lib/assay-testunit.rb
 lib/assay-testunit.yml
-HISTORY.rdoc
-DEMOS.rdoc
-README.rdoc
-COPYING.rdoc
+Metadata.yml
+LICENSE.txt
+HISTORY.md
+README.md
+DEMOS.md
+Config.rb

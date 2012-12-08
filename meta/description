@@ -1,4 +1,0 @@
-Assay TestUnit defines a set of TestUnit-compatible assertion methods which
-depend on Assay's assertion classes. This allows developers to change
-test frameworks without having to change a slew of previously
-defined assertions.

@@ -1,0 +1,44 @@
+---
+name:
+  assay-testunit
+
+version:
+  0.1.0
+
+title:
+  Assay TestUnit
+
+summary:
+  TestUnit on Assay
+
+description:
+  Assay TestUnit defines a set of TestUnit-compatible assertion methods which
+  depend on Assay's assertion classes. This allows developers to change
+  test frameworks without having to change a slew of previously
+  defined assertions.
+
+resources:
+  home: http://rubyworks.github.com/assay-testunit
+  docs: http://rubydoc.info/gems/assay-testunit
+  code: http://github.com/rubyworks/assay-testunit
+  mail: http://groups.google.com/groups/rubyworks-mailinglist
+
+requirements:
+  - assay
+  - detroit (build)
+  - qed     (test)
+
+repositories:
+  upstream: git@github.com:rubyworks/assay-testunit.git
+
+organizations:
+  - Rubyworks
+
+authors:
+  - Thomas Sawyer <transfire@gmail.com>
+
+copyrights:
+  - (c) 2012 Thomas Sawyer (BSD-2-Clause)
+
+created:
+  2012-01-18
